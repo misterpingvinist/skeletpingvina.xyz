@@ -1,0 +1,54 @@
+{% extends "base.html" %} {#{% load webp_converter %}#} {% block content %}
+<div id="articles">
+
+    {% for article in object_list %}
+    <article>
+      <div class="post-content">
+        <h2 class="post-title"><a href="/{{ article.slug }}">{{ article.title }}</a></h2>
+        <p>{{ article.short_text|safe|truncatechars:280 }}</p>
+        <span class="post-date">{{ article.published_date|date }}</span>
+        {% for categor in article.category.all %}
+                                 <a href="/?category={{ categor.pk }}" rel="tag" style="margin-left: 5px;">#{{ categor.title }}</a>&nbsp; 
+                            {% empty %}
+                                Без категории
+                            {% endfor %}
+      </div>
+    </article>
+    {% empty %} No articles yet. {% endfor %}
+</div>
+<!--{% if request.GET.category %} {% if True %}-->
+<!--<div class="pagination">-->
+    <!--{% if page_obj.has_previous %}-->
+    <!--<div class="newest">-->
+        <!--<a href="{{ request.path }}?category={{ request.GET.category }}&page={{ page_obj.previous_page_number }}">-->
+            <!--<span class="pager-heading">Посты поновее</span>-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--{% endif %} {% if page_obj.has_next %}-->
+    <!--<div class="older">-->
+        <!--<a href="{{ request.path }}?category={{ request.GET.category }}&page={{ page_obj.next_page_number }}">-->
+            <!--<span class="pager-heading">Посты постарше</span>-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--{% endif %}-->
+<!--</div>-->
+<!--{% endif %} {% else %} {% if is_paginated %}-->
+<!--<div class="pagination">-->
+    <!--{% if page_obj.has_previous %}-->
+    <!--&lt;!&ndash;<div class="newest">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="/?&page={{ page_obj.previous_page_number }}">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="pager-heading">Посты поновее</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<button class="button"><a href="/?&page={{ page_obj.previous_page_number }}">Посты поновее</a></button>-->
+    <!--{% endif %} {% if page_obj.has_next %}-->
+    <!--&lt;!&ndash;<div class="older">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="/?page={{ page_obj.next_page_number }}">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="pager-heading">Посты постарше</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<button class="button"><a href="/?&page={{ page_obj.next_page_number }}">Посты постарше</a></button>-->
+    <!--{% endif %}-->
+<!--</div>-->
+<!--{% endif %} {% endif %}-->
+{% endblock content %}

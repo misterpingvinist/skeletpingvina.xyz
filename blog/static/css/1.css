@@ -1,0 +1,28 @@
+article {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 11rem;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all .3s ease;
+  box-shadow: 0 1px 1px 0 rgba(31, 35, 46, 0.15); }
+
+#articles {
+  display: grid;
+  grid-gap: 30px;
+  padding: 20px; }
+
+article .post-thumbnail {
+  width: 30%;
+  max-width: 100%;
+  min-height: 11rem;
+  background-size: cover;
+  background-position: 50% 50%; }
+
+.post-content {
+  padding: 1em; }
+

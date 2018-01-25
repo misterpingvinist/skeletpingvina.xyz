@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="articles">
+{% for article in object_list %}
+
+     <div class="article">
+     <div class="post-img">
+         <a href="{{ article.slug }}"><img src="/static/30745.jpg" style="width: 100%"/></a>
+     </div>
+         <div class="post-header">
+
+             <h2><span> <a href="{{ article.slug }}">{{ article.title }}</a></span></h2>
+ <div class="post-tag">
+                 <span class="meta-data" style="margin-right: 5px;">{{ article.published_date|date }}</span> | <a href="#" rel="tag" style="margin-left: 5px;">{{ article.category.title }}</a>
+             </div>
+         </div>
+
+	<div class="post-content">
+		{{ article.short_text|safe|truncatechars:300 }}
+
+	</div>
+
+     </div>
+
+
+
+{% empty %}
+    No articles yet.
+{% endfor %}
+</div>
+    {% if request.GET.category  %}
+      {% if is_paginated %}
+        <div class="pagination">
+        {% if page_obj.has_previous %}
+             <div class="newest">
+    <a href="{{ request.path }}?category={{ request.GET.category }}&page={{ page_obj.previous_page_number }}"><span class="pager-heading">Посты поновее</span></a>
+</div>
+                {% endif %}
+                    {% if page_obj.has_next %}
+                               <div class="older">
+    <a href="{{ request.path }}?category={{ request.GET.category }}&page={{ page_obj.next_page_number }}"><span class="pager-heading">Посты постарше</span></a>
+</div>
+                {% endif %}
+        </div>
+    {% endif %}
+    {% else %}
+        {% if is_paginated %}
+              <div class="pagination">
+        {% if page_obj.has_previous %}
+             <div class="newest">
+    <a href="/?&page={{ page_obj.previous_page_number }}"><span class="pager-heading">Посты поновее</span></a>
+</div>
+                {% endif %}
+                    {% if page_obj.has_next %}
+                               <div class="older">
+    <a href="/?page={{ page_obj.next_page_number }}"><span class="pager-heading">Посты постарше</span></a>
+</div>
+                {% endif %}
+        </div>
+            {% endif %}
+    {% endif %}
+
+
+
+{#              <div class="pagination">#}
+{#<div class="older">#}
+{#    <a href="http://milana-beautytemplates.blogspot.ru/search?updated-max=2014-07-04T14:02:00-07:00&amp;max-results=7"><span class="pager-heading">Older Posts</span></a>#}
+{#</div>#}
+{#</div>#}
+
+
+
+{% endblock content %}

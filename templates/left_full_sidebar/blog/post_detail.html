@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="article-detail">
+<h1>{{ object.title }}</h1>
+<p>Дата: {{object.published_date|date }}</p>
+<p>{{ object.text|safe }}</p>
+    </div>
+{% endblock content %}

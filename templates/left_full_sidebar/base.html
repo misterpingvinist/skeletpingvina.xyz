@@ -1,0 +1,114 @@
+{% load static %}
+<html>
+<head>
+    <title>Pingvinium</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/static/css/general.css"/>
+    <link rel="stylesheet" href="/static/css/header.css"/>
+    <link rel="stylesheet" href="/static/css/content.css"/>
+    <meta name="yandex-verification" content="db0450605b11fae3" />
+    <script src="/static/ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110119910-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110119910-1');
+</script>
+</head>
+
+<body>
+    <div class="app">
+        <header>
+{#            <section id="links">#}
+{#                <div id="email">#}
+{#                    <span><i class="fa fa-envelope-o" aria-hidden="true"></i>mpingviniman@gmail.com</span>#}
+{#                </div>#}
+{#                <div id="social">#}
+{#                    <ul>#}
+{#                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>#}
+{#                        <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>#}
+{#                        <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </section>#}
+            <section id="logo">
+                                    <a class="title_link"  href="/">Pingvinium</a>
+
+            </section>
+             <div class="summary">
+                <div class="widget Text" data-version="1" id="Text1">
+                    <h2 class="title"><span>{{ about_title }}</span></h2>
+                    <div class="widget-content">
+                        <img alt="About Me"
+                             src="{{ about_image }}"/><br/>
+                        {{ about_text }}
+                    </div>
+                </div>
+
+                                <div class="widget Text" data-version="1" id="Text1">
+                    <h2 class="title"><span>Популярные посты</span></h2>
+                    <div class="widget-content">
+                        <ul>
+                            <li>Пост 1</li>
+                            <li>Пост 2</li>
+                            <li>Пост 3</li>
+                        </ul>
+                    </div>
+                    </div>
+                <div class="widget Text" data-version="1" id="Text1">
+                    <h2 class="title"><span>Категории</span></h2>
+                    <div class="widget-content">
+                        <ul>
+                            {% for categor in category %}
+                                <li><a href="{{ request.path }}?category={{ categor.pk }}">{{ categor }}</a></li>
+                            {% empty %}
+                                No articles yet.
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+             <div class="widget Text" data-version="1" id="Text1">
+                   <div>
+
+                       <a href="https://metrika.yandex.ru/stat/?id=46613898&amp;from=informer" target="_blank" rel="nofollow">
+    <img src="https://metrika-informer.com/informer/46613898/3_0_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="46613898" data-lang="ru" /></a>
+
+                   </div>
+                </div>
+
+            </div>
+{#            <section id="menu">#}
+{#                <ul id="menu-%d0%b3%d0%bb%d0%b0%d0%b2%d0%bd%d0%be%d0%b5-%d0%bc%d0%b5%d0%bd%d1%8e" class="menu nav-menu"><li id="menu-item-129" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-129"><a href="http://langtoday.com/?cat=29">Программирование</a></li>#}
+{#<li id="menu-item-130" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-130"><a href="http://langtoday.com/?cat=27">Путешествия</a></li>#}
+{#<li id="menu-item-674" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-674"><a href="http://langtoday.com/?cat=132">Иностранные языки</a></li>#}
+{#<li id="menu-item-128" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-128"><a href="http://langtoday.com/?cat=30">Жизнь</a></li>#}
+{#<li id="menu-item-218" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-218"><a href="http://cv.pyastolov.info">Резюме</a></li>#}
+{#</ul>#}
+{#            </section>#}
+
+        </header>
+
+        <div id="main">
+            <div class="content">
+                {% block content %}
+
+                {% endblock content %}
+            </div>
+
+        </div>
+    </div>
+
+    <!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46613898 = new Ya.Metrika({ id:46613898, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script>
+</body>
+</html>

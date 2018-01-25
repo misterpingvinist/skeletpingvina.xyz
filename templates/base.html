@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset="utf-8">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110119910-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110119910-1');
+</script>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/static/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/static/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/static/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/static/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/static/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/static/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/static/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/static/ms-icon-144x144.png">
+<meta name="theme-color" content="#317EFB"/>
+
+<link rel="preconnect" href="//cdnjs.cloudflare.com">
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//googletagmanager.com">
+<link rel="preconnect" href="//cdn.jsdelivr.net">
+    <title>Pingvinium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="yandex-verification" content="db0450605b11fae3"/>
+
+    <link rel="stylesheet" href="/static/css/normalize.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="{% static 'css/general.css' %}" />
+</head>
+
+<body>
+<div class="app" style="height:100%;">
+        <aside>
+            <div class="author-meta">
+                <div class="author-avatar">
+                    <a href="/">
+                        <img style="border-radius: 50%;" alt='logo' 
+                         src="https://scontent.cdninstagram.com/vp/696f8806d6058e5d4b711a9ec9092567/5ADC6F88/t51.2885-15/s320x320/e35/24838773_1771000139871767_5543403723604099072_n.jpg" title="Sanonz">
+                    </a>
+                </div>
+                <h1 class="author-name">Maxim Volkov</h1>
+                <div class="author-work">Web Developer</div>
+                <div class="social">
+
+            <a href="https://github.com/misterpingvinist">
+                <i class="fa  fa-github"></i>
+            </a>
+
+            <a href="https://twitter.com/MaximVo82616329?lang=en">
+                <i class="fa  fa-twitter"></i>
+            </a>
+
+
+            <a href="https://ru.pinterest.com/indigogodman/">
+                <i class="fa  fa-pinterest"></i>
+            </a>
+
+            <a href="https://www.facebook.com/maxim.volkov.319">
+                <i class="fa  fa-facebook"></i>
+            </a>
+
+        </div>
+            </div>
+
+        </aside>
+
+       <main>
+            
+            {% block content %}
+
+            {% endblock content %}
+
+    </main>
+</div>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans|Merriweather|Roboto|Indie+Flower" rel="stylesheet"> 
+
+
+<link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/railscasts.css' %}" />
+    <script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static '1.js' %}"></script>
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46613898 = new Ya.Metrika({ id:46613898, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46613898" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<script>
+  //This is the "Offline copy of pages" service worker
+
+//Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
+  //Register the ServiceWorker
+  navigator.serviceWorker.register('/sw.js?asjdkas', {
+    scope: './'
+  }).then(function(reg) {
+    console.log('Service worker has been registered for scope:'+ reg.scope);
+  });
+}
+</script>
+
+</body>
+</html>

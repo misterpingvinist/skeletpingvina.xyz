@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="article-detail">
+        <a href="javascript:history.back()" class="back">&larr;</a>
+<h1>{{ object.title }}</h1>
+<p>Дата: {{object.published_date|date }}</p>
+<p>{{ object.text|safe }}</p>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
